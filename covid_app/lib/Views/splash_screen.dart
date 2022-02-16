@@ -19,8 +19,15 @@ class _SplashScreenState extends State<SplashScreen> {
       color: Colors.deepOrange[600]);
 
   var _pageContr = PageController();
-
   int currentIndex = 0;
+
+  void IncrementIndex() {
+    setState(() {
+      if (currentIndex < models.length) {
+        currentIndex++;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +44,12 @@ class _SplashScreenState extends State<SplashScreen> {
         setState(() {
           currentIndex = value;
         });
-        currentIndex = value;
       },
       itemBuilder: (context, index) {
-        return OnBoardView(model: models[index]);
+        return OnBoardView(
+          model: models[currentIndex],
+          onPressed: IncrementIndex,
+        );
       },
       controller: _pageContr,
     );
