@@ -1,16 +1,7 @@
 # covid_app
+Splash Screen work for future covid-19 program ui.
 
-A new Flutter project.
+## ScreenShots
 
-## Getting Started
+<img src="https://user-images.githubusercontent.com/44341663/154343508-523c8124-f18b-4c0a-8a9b-5b7fd99acfa8.png" width=350/> <img src="https://user-images.githubusercontent.com/44341663/154343663-5828bacf-d9de-40e7-8d26-6024a5eff3d1.png" width=350/> <img src="https://user-images.githubusercontent.com/44341663/154343721-b67e9557-6ec9-4c30-ab1d-7c973c908332.png" width=350/>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
