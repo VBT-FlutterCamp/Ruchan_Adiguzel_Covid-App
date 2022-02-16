@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'other_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  SplashScreen({Key? key}) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -37,8 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ));
     }
     _pageContr.nextPage(
-        duration: Duration(milliseconds: 200), curve: Curves.bounceIn);
-    print(currentIndex);
+        duration: Duration(milliseconds: 300), curve: Curves.bounceIn);
   }
 
   void skipPage() {
@@ -56,18 +55,10 @@ class _SplashScreenState extends State<SplashScreen> {
             child: PageViewBuilder(),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextButton(
-                onPressed: currentIndex == models.length - 1 ? null : skipPage,
-                child: Text("Skip"),
-              ),
-              ElevatedButton(
-                onPressed: nextPage,
-                child: Text(currentIndex == models.length - 1
-                    ? AppConstants.continueText
-                    : AppConstants.nextText),
-              ),
+              SkipButtonMethod(),
+              NextButtonMethod(),
             ],
           ),
           Row(
@@ -80,9 +71,40 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
+  ElevatedButton SkipButtonMethod() {
+    return ElevatedButton(
+      onPressed: currentIndex == models.length - 1 ? null : skipPage,
+      child: Text(
+        AppConstants.skipText,
+        style: TextStyle(color: Colors.blueGrey[700]),
+      ),
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+            EdgeInsets.symmetric(horizontal: Values.MEDIUM.multiplyValues(5))),
+        backgroundColor: MaterialStateProperty.all<Color>(Colors.black12),
+        elevation: MaterialStateProperty.all<double>(0),
+      ),
+    );
+  }
+
+  ElevatedButton NextButtonMethod() {
+    return ElevatedButton(
+      onPressed: nextPage,
+      child: Text(currentIndex == models.length - 1
+          ? AppConstants.continueText
+          : AppConstants.nextText),
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+            EdgeInsets.symmetric(horizontal: Values.MEDIUM.multiplyValues(5))),
+        backgroundColor: MaterialStateProperty.all<Color>(
+            AppConstants.greenish ?? Colors.amber),
+      ),
+    );
+  }
+
   Widget buildPageIndicator(int index) {
     return AnimatedContainer(
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       margin: EdgeInsets.symmetric(
           horizontal: Values.LOW.getValues, vertical: Values.MEDIUM.getValues),
       height: Values.MEDIUM.getValues,
@@ -91,7 +113,7 @@ class _SplashScreenState extends State<SplashScreen> {
           : AppConstants.MEDIUM_VALUE,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppConstants.BIG_VALUE),
-          color: Colors.red),
+          color: AppConstants.labelTextColor),
     );
   }
 
@@ -161,7 +183,7 @@ class _SplashScreenState extends State<SplashScreen> {
           style: Theme.of(context)
               .textTheme
               .headline5!
-              .copyWith(color: const Color(0xFF33586c)),
+              .copyWith(color: AppConstants.labelTextColor),
         ),
       ),
     );

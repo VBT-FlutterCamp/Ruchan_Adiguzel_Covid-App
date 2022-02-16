@@ -8,12 +8,13 @@ class AppConstants {
   static String nextText = "Next";
   static String skipText = "Skip";
   static String continueText = "Continue";
+  static String appBarTextSplash = "Covid-19 App";
 //END OF STRING CONSTANTS
 
 //COLOR CONSTANTS BEGIN
   static Color? greenish = Colors.tealAccent[700];
-  // static Color? background = Colors.blueGrey[700];
-  static Color? background = Colors.white;
+  static Color labelTextColor = Color(0xFF33586c);
+  static Color background = Colors.white;
 
 //END OF COLOR CONSTANTS
 

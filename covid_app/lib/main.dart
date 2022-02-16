@@ -1,3 +1,4 @@
+import 'package:covid_app/AppConstants/app_constants.dart';
 import 'package:covid_app/Views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +12,12 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            title: Text('Covid-19 App'),
+            title: Text(
+              AppConstants.appBarTextSplash,
+              style: TextStyle(color: AppConstants.labelTextColor),
+            ),
             elevation: 0,
+            backgroundColor: Colors.transparent,
           ),
           body: SplashScreen()),
     );
