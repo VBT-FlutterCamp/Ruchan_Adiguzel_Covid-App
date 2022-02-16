@@ -33,7 +33,28 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppConstants.background,
-      body: PageViewBuilder(),
+      body: Column(
+        children: [
+          Expanded(
+            child: PageViewBuilder(),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+                models.length, (index) => buildPageIndicator(index)),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container buildPageIndicator(int index) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      height: 10,
+      width: currentIndex == index ? 20 : 10,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20), color: Colors.red),
     );
   }
 
@@ -46,12 +67,46 @@ class _SplashScreenState extends State<SplashScreen> {
         });
       },
       itemBuilder: (context, index) {
-        return OnBoardView(
-          model: models[currentIndex],
-          onPressed: IncrementIndex,
+        return Column(
+          children: [
+            Image.asset(models[index].imagePath),
+            buildTitleText(index, context),
+            buildDescriptionText(index, context)
+          ],
         );
       },
       controller: _pageContr,
+    );
+  }
+
+  Container buildDescriptionText(int index, BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 50), //20
+      child: Center(
+        child: Text(
+          models[index].description,
+          style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                color: Colors.black,
+                wordSpacing: 5,
+              ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+
+  Container buildTitleText(int index, BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(top: 50),
+      child: Center(
+        child: Text(
+          models[index].title,
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(color: Colors.black),
+        ),
+      ),
     );
   }
 }
