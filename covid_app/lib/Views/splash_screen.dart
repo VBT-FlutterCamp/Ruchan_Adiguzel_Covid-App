@@ -1,11 +1,6 @@
 import 'package:covid_app/AppConstants/app_constants.dart';
-import 'package:covid_app/Views/view_first.dart';
-import 'package:covid_app/Views/view_second.dart';
-import 'package:covid_app/Views/view_third.dart';
-import 'package:covid_app/widgets/label_text_widget.dart';
-import 'package:covid_app/widgets/label_under_content_widget.dart';
-import 'package:covid_app/widgets/wide_elevated_btn.dart';
-import 'package:covid_app/widgets/wide_text_button.dart';
+import 'package:covid_app/Views/on_board_view.dart';
+import 'package:covid_app/models/on_board_models.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -27,8 +22,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   int currentIndex = 0;
 
-  var listOfViews = [ViewFirst(), ViewSecond(), ViewThird()];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   PageView PageViewBuilder() {
     return PageView.builder(
-      itemCount: listOfViews.length,
+      itemCount: models.length,
       onPageChanged: (value) {
         setState(() {
           currentIndex = value;
@@ -47,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         currentIndex = value;
       },
       itemBuilder: (context, index) {
-        return listOfViews[index];
+        return OnBoardView(model: models[index]);
       },
       controller: _pageContr,
     );
