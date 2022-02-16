@@ -1,4 +1,5 @@
 import 'package:covid_app/AppConstants/app_constants.dart';
+import 'package:covid_app/AppConstants/values.dart';
 import 'package:covid_app/models/on_board_models.dart';
 import 'package:flutter/material.dart';
 
@@ -63,7 +64,9 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               ElevatedButton(
                 onPressed: nextPage,
-                child: Text(currentIndex == 2 ? "continue" : "Next"),
+                child: Text(currentIndex == models.length - 1
+                    ? AppConstants.continueText
+                    : AppConstants.nextText),
               ),
             ],
           ),
@@ -80,11 +83,15 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget buildPageIndicator(int index) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 200),
-      margin: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
-      height: 10,
-      width: currentIndex == index ? 20 : 10,
+      margin: EdgeInsets.symmetric(
+          horizontal: Values.LOW.getValues, vertical: Values.MEDIUM.getValues),
+      height: Values.MEDIUM.getValues,
+      width: currentIndex == index
+          ? AppConstants.BIG_VALUE
+          : AppConstants.MEDIUM_VALUE,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Colors.red),
+          borderRadius: BorderRadius.circular(AppConstants.BIG_VALUE),
+          color: Colors.red),
     );
   }
 
@@ -112,9 +119,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Container buildContent(int index, BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+              topLeft: Radius.circular(Values.HIGH.getValues),
+              topRight: Radius.circular(Values.HIGH.getValues)),
           color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -128,13 +136,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Container buildDescriptionText(int index, BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 50), //20
+      margin: EdgeInsets.symmetric(
+          vertical: Values.LOW.getValues,
+          horizontal: Values.MEDIUM.multiplyValues(5)),
       child: Center(
         child: Text(
           models[index].description,
           style: Theme.of(context).textTheme.bodyText2!.copyWith(
                 color: Colors.grey[900],
-                wordSpacing: 5,
+                wordSpacing: Values.LOW.getValues,
               ),
           textAlign: TextAlign.center,
         ),
@@ -144,7 +154,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Container buildTitleText(int index, BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 50),
+      margin: EdgeInsets.only(top: Values.MEDIUM.multiplyValues(5)),
       child: Center(
         child: Text(
           models[index].title,
