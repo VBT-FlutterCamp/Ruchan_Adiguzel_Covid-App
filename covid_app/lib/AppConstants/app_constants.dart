@@ -5,15 +5,34 @@ import 'package:flutter/material.dart';
 class AppConstants {
   //STRING CONSTANTS BEGIN
 
+  ///Returns = Next
   static String nextText = "Next";
+
+  ///Returns = Skip
   static String skipText = "Skip";
+
+  ///Returns = Continue
   static String continueText = "Continue";
+
+  ///Returns = Covid-19 App
   static String appBarTextSplash = "Covid-19 App";
+
+  ///Returns = Email Adress
   static String InputLabelText = "Email Adress";
+
+  ///Returns = Password
   static String passText = "Password";
+
+  ///Returns = Forgot Password
   static String forgotPassText = "Forgot Password";
+
+  ///Returns = Login
   static String loginText = "LOGIN";
+
+  ///Returns = Dont't have an account?
   static String createAccountPart1 = "Dont't have an account? ";
+
+  ///Returns = Create
   static String createAccountPart2 = "Create";
 //END OF STRING CONSTANTS
 
