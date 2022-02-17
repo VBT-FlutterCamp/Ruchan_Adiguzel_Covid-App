@@ -3,7 +3,7 @@ import 'package:covid_app/AppConstants/values.dart';
 import 'package:covid_app/models/on_board_models.dart';
 import 'package:flutter/material.dart';
 
-import 'other_screen.dart';
+import 'login_screen.dart';
 
 class OnBoardScreen extends StatefulWidget {
   const OnBoardScreen({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
   void nextPage() {
     if (currentIndex == models.length - 1) {
       Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => OtherScreen(),
+        builder: (context) => LoginScreen(),
       ));
     }
     _pageContr.nextPage(
