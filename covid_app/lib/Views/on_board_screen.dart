@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 import 'other_screen.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class OnBoardScreen extends StatefulWidget {
+  const OnBoardScreen({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<OnBoardScreen> createState() => _OnBoardScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _OnBoardScreenState extends State<OnBoardScreen> {
   late PageController _pageContr;
   int currentIndex = 0;
   @override

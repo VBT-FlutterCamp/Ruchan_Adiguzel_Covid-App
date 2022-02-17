@@ -1,5 +1,5 @@
 import 'package:covid_app/AppConstants/app_constants.dart';
-import 'package:covid_app/Views/splash_screen.dart';
+import 'package:covid_app/Views/on_board_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
             backgroundColor: Colors.transparent,
           ),
-          body: SplashScreen()),
+          body: OnBoardScreen()),
     );
   }
 }
